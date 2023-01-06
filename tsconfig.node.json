@@ -11,7 +11,9 @@
     "isolatedModules": false,
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "composite": true,
+    "types": ["node"]
   },
   "extends": "@vue/tsconfig/tsconfig.node.json",
   "include": [
@@ -30,9 +32,5 @@
   "paths": {
     "@src/*": ["src/*"]
   },
-  "typeRoots": ["node_modules/@types"],
-  "compilerOptions": {
-    "composite": true,
-    "types": ["node"]
-  }
+  "typeRoots": ["node_modules/@types"]
 }

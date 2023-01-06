@@ -1,28 +1,29 @@
-## Vue3-Chrome-Extension-Template
+## Vue3 Chrome Extension
 
-基于 Vue3 开发 Chrome 插件的模版项目。
+Created with [template repository](https://github.com/jonny-novikov/vue3-chrome-extension-template) for developing Chrome extensions based on Vue3.
 
-### 使用
+### How to use
 
-直接克隆项目即可，项目使用 `pnpm 17` 版本。
+- Click 'Use this template' to initialize repository for your own Chrome Extension.
 
-- 安装
+
+- Install
 
 ```bash
 pnpm install
 ```
 
-- 运行
+- Run
 
 ```bash
 pnpm dev
 ```
 
-- 调试
+- Debug
 
-调试的时候，只需要在谷歌浏览器 `chrome://extensions/` 页面中，点击 **加载已解压的拓展程序** 按钮，将插件项目中 `dist` 目录添加进去即可。
+When debugging, you only need to click the Load uncompressed extension button on the (Chrome Extensions Page)[chrome://extensions/] page of Google Chrome, and add the `dist` directory in the plug-in project.
 
-- 构建
+- Build in production mode to generate extension package
 
 ```bash
 pnpm build

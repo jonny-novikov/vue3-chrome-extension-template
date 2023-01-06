@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "NgOneTab",
-  "version": "0.0.7",
-  "description": "NgOneTab - New One Tab Pro Extension!",
+  "name": "vue3-chrome-extension-template",
+  "version": "0.0.1",
+  "description": "Vue3 Chrome Extension by Jonny",
   "options_page": "src/options/index.html",
   "background": {
     "service_worker": "src/background/index.js"
