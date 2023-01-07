@@ -3,13 +3,21 @@ import windiCSS from 'vite-plugin-windicss'
 import { resolve } from "path";
 import vue from "@vitejs/plugin-vue";
 import makeManifest from "./scripts/make-manifest";
+import {
+  chromeExtension,
+  simpleReloader,
+} from 'vite-plugin-chrome-extension';
+import dotenv from 'dotenv';
+dotenv.config();
+
+console.log(process.env.NODE_ENV);
 
 const src = resolve(__dirname, "src");
 const assetsDir = resolve(src, "assets");
 const outDir = resolve(__dirname, "dist");
 const publicDir = resolve(__dirname, "public");
 
-const isDev = false;
+const isDev = process.env.NODE_ENV !== 'production';
 
 export const sharedConfig: UserConfig = {
   resolve: {

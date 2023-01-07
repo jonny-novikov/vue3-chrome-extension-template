@@ -5,5 +5,4 @@ import Options from "./index.vue";
 
 const app = createApp(Options)
 
-
 app.mount("#app-container");

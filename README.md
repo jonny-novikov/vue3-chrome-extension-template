@@ -4,9 +4,6 @@ Created with [template repository](https://github.com/jonny-novikov/vue3-chrome-
 
 ### How to use
 
-- Click 'Use this template' to initialize repository for your own Chrome Extension.
-
-
 - Install
 
 ```bash
@@ -21,7 +18,7 @@ pnpm dev
 
 - Debug
 
-When debugging, you only need to click the Load uncompressed extension button on the (Chrome Extensions Page)[chrome://extensions/] page of Google Chrome, and add the `dist` directory in the plug-in project.
+Before debugging, open Extensions Page of Google Chrome [chrome://extensions](chrome://extensions) to enable Developer Mode. Then click the **Load uncompressed extension** button, and add the `dist` folder in the extension project.
 
 - Build in production mode to generate extension package
 

@@ -1,45 +1,54 @@
-import { onMessage, sendMessage } from 'webext-bridge';
+import browser, { Runtime } from 'webextension-polyfill'
+import MessageSender = Runtime.MessageSender;
+// import { getBrowser } from "../utils";
+// import { onMessage, sendMessage } from 'webext-bridge';
 
-// 卸载拓展时执行
-chrome.runtime.onSuspend.addListener(() => {
-   // TODO
-})
+type BackgroundMessageType = {
+   action: string;
+   type: string;
+   data: any;
+}
 
-// 监听拓展加载完成
-chrome.runtime.onInstalled.addListener(async (result: { reason: string; }) => {
+// Set callback for plugin installed event
+browser.runtime.onInstalled.addListener(async (result: { reason: string; }) => {
    if (result.reason === 'install') {
-      console.log('[安装成功]')
+      console.log('[restart]')
    }
 });
 
-// 点击拓展图标的监听
-chrome.action.onClicked.addListener(async (tab: { id: string; }) => {
-   if (tab.id) {
+// Set callback for page unloading event
+browser.runtime.onSuspend.addListener(() => {
+   // TODO
+})
+
+// Listening plugin icon click events
+browser.action.onClicked.addListener( ({ id }) => {
+   if (id) {
       // https://github.com/zikaari/webext-bridge#destination
    }
 });
 
-// 获取用户 oauth token
-// chrome.identity.getAuthToken({ interactive: true }, function (token) {
+// Get user oauth token
+// browser.identity.getAuthToken({ interactive: true }, function (token) {
 //    console.log('[token]', token)
 // });
 
-// 获取用户邮箱和 id
-// chrome.identity.getProfileUserInfo({ accountStatus: 'ANY' } as any, async (userInfo: UserInfo) => {
+// Get user email and id
+// browser.identity.getProfileUserInfo({ accountStatus: 'ANY' } as any, async (userInfo: UserInfo) => {
 //    console.log('[userInfo]', userInfo)
 // })
 
-// 监听插件快捷键触发
-chrome.commands.onCommand.addListener((command: any) => {
+// Listening keyboard shortcuts events
+browser.commands.onCommand.addListener((command: any) => {
    console.log('[command]', command)
 });
 
-// 初始化监听插件事件
+// Initialize listener plugin events
 const listener = () => {
-   chrome.runtime.onMessage.addListener((request: { action: any; type: any; data: any; }, sender: any, sendResponse: (arg0: { success: boolean; data?: any; msg?: string; }) => void) => {
-      const { action, type, data } = request;
-      console.log('[request]', request)
-
+   browser.runtime.onMessage.addListener((msg: BackgroundMessageType, sender: MessageSender) => {
+      // const { action, type, data } = msg;
+      console.log('[msg]', msg);
+      console.log('[sender]', sender);
    });
 }
 

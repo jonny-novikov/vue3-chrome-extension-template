@@ -1,5 +1,5 @@
 (() => {
   setTimeout(function () {
-    console.log('[content]')
+    console.log('[content]');
   }, 1000)
 })()

@@ -4,7 +4,6 @@ const msg = ref("hello world");
 </script>
 <template>
   <header>
-
     <div class="wrapper">
       <div class="greetings">
         <h1 class="green">{{ msg }}</h1>
